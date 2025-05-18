@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://brncja0lenjnu"]
+
+[ext_resource type="PackedScene" uid="uid://cjxc8nuf0q7sw" path="res://card.tscn" id="1_ig7tw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="card" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(239, 444)
+
+[node name="Icon" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(536, 441)
