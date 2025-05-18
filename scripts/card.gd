@@ -7,7 +7,7 @@ var velocity: Vector2 = Vector2.ZERO
 
 func handle_simulation(delta: float) -> void:
 	# Apply upward thrust as a force
-	var force = Vector2(0, -thrust / mass)
+	var force: Vector2 = Vector2(0, -thrust / mass)
 	velocity += force * delta
 
 	# Update position based on velocity
@@ -26,14 +26,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# If dragging, update position to follow mouse and snap to other cards
 	if _dragging and state == State.INTERACTIVE:
-		var mouse_pos = get_global_mouse_position()
+		var mouse_pos: Vector2 = get_global_mouse_position()
 		position = mouse_pos
 
 		# Snap logic
 		var my_shape = $Area2D.get_node("CollisionShape2D").shape
 		if typeof(my_shape) != TYPE_NIL and my_shape is RectangleShape2D:
-			var my_rect = Rect2(global_position - my_shape.size * 0.5, my_shape.size)
-			var snap_threshold = 20.0 # pixels
+			var my_rect: Rect2        = Rect2(global_position - my_shape.size * 0.5, my_shape.size)
+			var snap_threshold: float = 20.0 # pixels
 			for card in get_tree().get_nodes_in_group("cards"):
 				if card == self:
 					continue
@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 				var other_shape = card.get_node("Area2D/CollisionShape2D").shape
 				if typeof(other_shape) == TYPE_NIL or not (other_shape is RectangleShape2D):
 					continue
-				var other_rect = Rect2(card.global_position - other_shape.size * 0.5, other_shape.size)
+				var other_rect: Rect2 = Rect2(card.global_position - other_shape.size * 0.5, other_shape.size)
 
 				# Check each edge for proximity and snap if close
 				# Left edge
