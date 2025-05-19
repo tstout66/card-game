@@ -8,4 +8,4 @@
 position = Vector2(239, 444)
 
 [node name="Icon" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(536, 441)
+position = Vector2(535, 437)

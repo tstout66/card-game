@@ -34,3 +34,8 @@ func _input(event: InputEvent) -> void:
 			set_state(State.INTERACTIVE)
 		else:
 			set_state(State.SIMULATION)
+			
+	# Handle global input events that might affect interactive state
+	if state == State.INTERACTIVE:
+		# Add any global input handling here if needed
+		pass
